@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using NoteApplication.Model;
 
 namespace NoteApplication
 {
@@ -12,37 +13,25 @@ namespace NoteApplication
     [ServiceContract]
     public interface INoteService
     {
+
         [OperationContract]
-        IEnumerable<User> GetUsers();
+        bool UserExists(string login);
+        [OperationContract]
+        User GetUserByLogin(string login);
+        [OperationContract]
+        User GetUserByGuid(Guid guid);
+        [OperationContract]
+        List<User> GetAllUsers(Guid walletGuid);
         [OperationContract]
         void AddUser(User user);
         [OperationContract]
-        void UpdateUser(User user);
+        void AddNote(Note wallet);
         [OperationContract]
-        void DeleteUser(int id);
+        void SaveNote(Note wallet);
+        [OperationContract]
+        void DeleteNote(Note selectedNote);
 
     }
 
-    [DataContract]
-    public class User
-    {
-        [DataMember]
-        [Key]
-        [Required]
-        public int Id { get; set; }
-        [DataMember]
-        [Required]
-        public string Email { get; set; }
-        [DataMember]
-        [Required]
-        public string Password { get; set; }
-        [DataMember]
-        [Required]
-        public string FirstName { get; set; }
-        [DataMember]
-        [Required]
-        public string SecondName { get; set; }
-        //public virtual ICollection<Note> Notes { get; set; }
-    }
 
 }
