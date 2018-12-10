@@ -104,6 +104,9 @@
     <None Include="Connected Services\NotesService\NoteService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\NotesService\NoteView.NotesService.Note.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\NotesService\NoteView.NotesService.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

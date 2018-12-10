@@ -338,6 +338,36 @@ namespace NoteView.NotesService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/CheckPassword", ReplyAction="http://tempuri.org/INoteService/CheckPasswordResponse")]
         System.Threading.Tasks.Task<bool> CheckPasswordAsync(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/AddNote", ReplyAction="http://tempuri.org/INoteService/AddNoteResponse")]
+        NoteView.NotesService.Note AddNote(NoteView.NotesService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/AddNote", ReplyAction="http://tempuri.org/INoteService/AddNoteResponse")]
+        System.Threading.Tasks.Task<NoteView.NotesService.Note> AddNoteAsync(NoteView.NotesService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/DeleteNote", ReplyAction="http://tempuri.org/INoteService/DeleteNoteResponse")]
+        void DeleteNote(NoteView.NotesService.Note note);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/DeleteNote", ReplyAction="http://tempuri.org/INoteService/DeleteNoteResponse")]
+        System.Threading.Tasks.Task DeleteNoteAsync(NoteView.NotesService.Note note);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/getAllNotes", ReplyAction="http://tempuri.org/INoteService/getAllNotesResponse")]
+        NoteView.NotesService.Note[] getAllNotes(System.Guid userGuid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/getAllNotes", ReplyAction="http://tempuri.org/INoteService/getAllNotesResponse")]
+        System.Threading.Tasks.Task<NoteView.NotesService.Note[]> getAllNotesAsync(System.Guid userGuid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/GetNote", ReplyAction="http://tempuri.org/INoteService/GetNoteResponse")]
+        NoteView.NotesService.Note GetNote(System.Guid noteGuid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/GetNote", ReplyAction="http://tempuri.org/INoteService/GetNoteResponse")]
+        System.Threading.Tasks.Task<NoteView.NotesService.Note> GetNoteAsync(System.Guid noteGuid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/SaveNote", ReplyAction="http://tempuri.org/INoteService/SaveNoteResponse")]
+        void SaveNote(NoteView.NotesService.Note note);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteService/SaveNote", ReplyAction="http://tempuri.org/INoteService/SaveNoteResponse")]
+        System.Threading.Tasks.Task SaveNoteAsync(NoteView.NotesService.Note note);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -397,6 +427,46 @@ namespace NoteView.NotesService {
         
         public System.Threading.Tasks.Task<bool> CheckPasswordAsync(string login, string password) {
             return base.Channel.CheckPasswordAsync(login, password);
+        }
+        
+        public NoteView.NotesService.Note AddNote(NoteView.NotesService.User user) {
+            return base.Channel.AddNote(user);
+        }
+        
+        public System.Threading.Tasks.Task<NoteView.NotesService.Note> AddNoteAsync(NoteView.NotesService.User user) {
+            return base.Channel.AddNoteAsync(user);
+        }
+        
+        public void DeleteNote(NoteView.NotesService.Note note) {
+            base.Channel.DeleteNote(note);
+        }
+        
+        public System.Threading.Tasks.Task DeleteNoteAsync(NoteView.NotesService.Note note) {
+            return base.Channel.DeleteNoteAsync(note);
+        }
+        
+        public NoteView.NotesService.Note[] getAllNotes(System.Guid userGuid) {
+            return base.Channel.getAllNotes(userGuid);
+        }
+        
+        public System.Threading.Tasks.Task<NoteView.NotesService.Note[]> getAllNotesAsync(System.Guid userGuid) {
+            return base.Channel.getAllNotesAsync(userGuid);
+        }
+        
+        public NoteView.NotesService.Note GetNote(System.Guid noteGuid) {
+            return base.Channel.GetNote(noteGuid);
+        }
+        
+        public System.Threading.Tasks.Task<NoteView.NotesService.Note> GetNoteAsync(System.Guid noteGuid) {
+            return base.Channel.GetNoteAsync(noteGuid);
+        }
+        
+        public void SaveNote(NoteView.NotesService.Note note) {
+            base.Channel.SaveNote(note);
+        }
+        
+        public System.Threading.Tasks.Task SaveNoteAsync(NoteView.NotesService.Note note) {
+            return base.Channel.SaveNoteAsync(note);
         }
     }
 }

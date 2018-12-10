@@ -53,16 +53,17 @@ namespace NoteView
 
         void LoginUser(string login)
         {
-            NotesForm notesForm = new NotesForm();
-            notesForm.SetUserLogin(login);
+            NotesForm notesForm = new NotesForm(login);
             notesForm.Show();
             this.Hide();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            bool validation = true;
+           
 
+            bool validation = true;
+            
             if (string.IsNullOrEmpty(((TextBox) this.Controls.Find("LoginBox", true)[0]).Text)) validation = false;
             if (string.IsNullOrEmpty(((TextBox) this.Controls.Find("PasswordBox", true)[0]).Text)) validation = false;
             if (!validation) AlertMessage("Fill all fields");

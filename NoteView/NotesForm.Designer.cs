@@ -30,7 +30,7 @@
         {
             this.ListNotes = new System.Windows.Forms.ListBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NoteTitle = new System.Windows.Forms.TextBox();
             this.NoteText = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.ListNotes.Name = "ListNotes";
             this.ListNotes.Size = new System.Drawing.Size(152, 355);
             this.ListNotes.TabIndex = 0;
+            this.ListNotes.SelectedIndexChanged += new System.EventHandler(this.ListNotes_SelectedIndexChanged);
             // 
             // FullNameLabel
             // 
@@ -58,12 +59,12 @@
             this.FullNameLabel.TabIndex = 1;
             this.FullNameLabel.Text = "Den Start";
             // 
-            // textBox1
+            // NoteTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(182, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(391, 20);
-            this.textBox1.TabIndex = 2;
+            this.NoteTitle.Location = new System.Drawing.Point(182, 46);
+            this.NoteTitle.Name = "NoteTitle";
+            this.NoteTitle.Size = new System.Drawing.Size(391, 20);
+            this.NoteTitle.TabIndex = 2;
             // 
             // NoteText
             // 
@@ -72,6 +73,7 @@
             this.NoteText.Size = new System.Drawing.Size(391, 268);
             this.NoteText.TabIndex = 4;
             this.NoteText.Text = "";
+            this.NoteText.TextChanged += new System.EventHandler(this.NoteText_TextChanged);
             // 
             // label1
             // 
@@ -119,6 +121,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Remove";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -142,7 +145,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NoteText);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NoteTitle);
             this.Controls.Add(this.FullNameLabel);
             this.Controls.Add(this.ListNotes);
             this.Name = "NotesForm";
@@ -156,7 +159,7 @@
 
         private System.Windows.Forms.ListBox ListNotes;
         private System.Windows.Forms.Label FullNameLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NoteTitle;
         private System.Windows.Forms.RichTextBox NoteText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

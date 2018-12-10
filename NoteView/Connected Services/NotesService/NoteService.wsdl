@@ -32,6 +32,36 @@
   <wsdl:message name="INoteService_CheckPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckPasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="INoteService_AddNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNote" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_AddNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_DeleteNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNote" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_DeleteNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_getAllNotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllNotes" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_getAllNotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_GetNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNote" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_GetNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_SaveNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveNote" />
+  </wsdl:message>
+  <wsdl:message name="INoteService_SaveNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveNoteResponse" />
+  </wsdl:message>
   <wsdl:portType name="INoteService">
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/INoteService/AddUser" message="tns:INoteService_AddUser_InputMessage" />
@@ -48,6 +78,26 @@
     <wsdl:operation name="CheckPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/INoteService/CheckPassword" message="tns:INoteService_CheckPassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INoteService/CheckPasswordResponse" message="tns:INoteService_CheckPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/INoteService/AddNote" message="tns:INoteService_AddNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INoteService/AddNoteResponse" message="tns:INoteService_AddNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/INoteService/DeleteNote" message="tns:INoteService_DeleteNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INoteService/DeleteNoteResponse" message="tns:INoteService_DeleteNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllNotes">
+      <wsdl:input wsaw:Action="http://tempuri.org/INoteService/getAllNotes" message="tns:INoteService_getAllNotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INoteService/getAllNotesResponse" message="tns:INoteService_getAllNotes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/INoteService/GetNote" message="tns:INoteService_GetNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INoteService/GetNoteResponse" message="tns:INoteService_GetNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/INoteService/SaveNote" message="tns:INoteService_SaveNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INoteService/SaveNoteResponse" message="tns:INoteService_SaveNote_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_INoteService" type="tns:INoteService">
@@ -81,6 +131,51 @@
     </wsdl:operation>
     <wsdl:operation name="CheckPassword">
       <soap:operation soapAction="http://tempuri.org/INoteService/CheckPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <soap:operation soapAction="http://tempuri.org/INoteService/AddNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNote">
+      <soap:operation soapAction="http://tempuri.org/INoteService/DeleteNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllNotes">
+      <soap:operation soapAction="http://tempuri.org/INoteService/getAllNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNote">
+      <soap:operation soapAction="http://tempuri.org/INoteService/GetNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveNote">
+      <soap:operation soapAction="http://tempuri.org/INoteService/SaveNote" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

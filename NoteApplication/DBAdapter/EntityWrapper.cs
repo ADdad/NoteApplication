@@ -25,6 +25,15 @@ namespace NoteApplication.DBAdapter
             }
         }
 
+        public static Note GetNoteById(Guid noteGuid)
+        {
+            using (var context = new NotesContext())
+            {
+                return context.Notes.FirstOrDefault(u => u.Guid == noteGuid);
+            }
+        }
+
+
         public static User GetUserByGuid(Guid guid)
         {
             using (var context = new NotesContext())
@@ -41,17 +50,24 @@ namespace NoteApplication.DBAdapter
             }
         }
 
+        public static List<Note> GetAllNotes(Guid userGuid)
+        {
+            using (var context = new NotesContext())
+            {
+                return context.Notes.Where(u => u.User.Guid == userGuid).ToList();
+            }
+        }
+
         public static void AddUser(User user)
         {
             using (var context = new NotesContext())
             {
-
                 context.Users.Add(user);
                 context.SaveChanges();
             }
         }
 
-        public static void AddNote(Note note)
+        public static Note AddNote(Note note)
         {
             using (var context = new NotesContext())
             {
@@ -59,7 +75,10 @@ namespace NoteApplication.DBAdapter
                 context.Notes.Add(note);
                 context.SaveChanges();
             }
+
+            return note;
         }
+
 
         public static void SaveNote(Note note)
         {
