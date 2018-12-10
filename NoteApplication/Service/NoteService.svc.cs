@@ -1,84 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel;
+using NoteApplication.DBAdapter;
 using NoteApplication.Model;
 
 namespace NoteApplication
 {
-    public class NoteService
+    public class NoteService : INoteService
     {
-        public static bool UserExists(string login)
+
+
+       
+       
+        public void AddUser(List<string> UserParams)
         {
-            using (var myChannelFactory = new ChannelFactory<INoteService>("Server"))
-            {
-                INoteService client = myChannelFactory.CreateChannel();
-                return client.UserExists(login);
+            if(UserParams.Count == 5) { 
+            User user = new User(UserParams[0], UserParams[1], UserParams[2], UserParams[3], UserParams[4]);
+            EntityWrapper.AddUser(user);
             }
         }
 
-        public static User GetUserByLogin(string login)
+
+
+        public bool UserExists(string login)
         {
-            using (var myChannelFactory = new ChannelFactory<INoteService>("Server"))
-            {
-                INoteService client = myChannelFactory.CreateChannel();
-                return client.GetUserByLogin(login);
-            }
+            return EntityWrapper.UserExists(login);
         }
 
-        public static User GetUserByGuid(Guid guid)
+        public User GetUserByLogin(string login)
         {
-            using (var myChannelFactory = new ChannelFactory<INoteService>("Server"))
-            {
-                INoteService client = myChannelFactory.CreateChannel();
-                return client.GetUserByGuid(guid);
-            }
+            return EntityWrapper.GetUserByLogin(login);
         }
 
-        public static void AddUser(User user)
+        public bool CheckPassword(string login, string password)
         {
-            using (var myChannelFactory = new ChannelFactory<INoteService>("Server"))
-            {
-                INoteService client = myChannelFactory.CreateChannel();
-                client.AddUser(user);
-            }
+            User user = EntityWrapper.GetUserByLogin(login);
+            return user.CheckPassword(password);
         }
-
-        public static void AddNote(Note note)
-        {
-            using (var myChannelFactory = new ChannelFactory<INoteService>("Server"))
-            {
-                INoteService client = myChannelFactory.CreateChannel();
-                client.AddNote(note);
-            }
-        }
-
-        public static void SaveNote(Note note)
-        {
-            using (var myChannelFactory = new ChannelFactory<INoteService>("Server"))
-            {
-                INoteService client = myChannelFactory.CreateChannel();
-                client.SaveNote(note);
-            }
-        }
-
-        public static List<User> GetAllUsers(Guid noteGuid)
-        {
-            using (var myChannelFactory = new ChannelFactory<INoteService>("Server"))
-            {
-                INoteService client = myChannelFactory.CreateChannel();
-                return client.GetAllUsers(noteGuid);
-            }
-        }
-
-        public static void DeleteNote(Note selectedNote)
-        {
-            using (var myChannelFactory = new ChannelFactory<INoteService>("Server"))
-            {
-                INoteService client = myChannelFactory.CreateChannel();
-                client.DeleteNote(selectedNote);
-            }
-        }
-
     }
 }

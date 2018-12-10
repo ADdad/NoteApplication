@@ -68,17 +68,22 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NoteService.svc" />
+    <Content Include="Service\NoteService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBAdapter\EntityWrapper.cs" />
-    <Compile Include="INoteService.cs" />
+    <Compile Include="Service\INoteService.cs" />
+    <Compile Include="Managers\DbManager.cs" />
+    <Compile Include="Migrations\201812092249089_InitMigration.cs" />
+    <Compile Include="Migrations\201812092249089_InitMigration.Designer.cs">
+      <DependentUpon>201812092249089_InitMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Note.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="DBAdapter\NotesContext.cs" />
-    <Compile Include="NoteService.svc.cs">
+    <Compile Include="Service\NoteService.svc.cs">
       <DependentUpon>NoteService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +99,11 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812092249089_InitMigration.resx">
+      <DependentUpon>201812092249089_InitMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

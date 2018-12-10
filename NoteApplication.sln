@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteApplication", "NoteApplication\NoteApplication.csproj", "{4C1A9DEC-8E15-4EC2-BE98-2BFC091920E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteView", "NoteView\NoteView.csproj", "{DA889D22-C6D4-44DC-83C4-6C2B3E899916}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4C1A9DEC-8E15-4EC2-BE98-2BFC091920E8} = {4C1A9DEC-8E15-4EC2-BE98-2BFC091920E8}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{4C1A9DEC-8E15-4EC2-BE98-2BFC091920E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C1A9DEC-8E15-4EC2-BE98-2BFC091920E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C1A9DEC-8E15-4EC2-BE98-2BFC091920E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA889D22-C6D4-44DC-83C4-6C2B3E899916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA889D22-C6D4-44DC-83C4-6C2B3E899916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA889D22-C6D4-44DC-83C4-6C2B3E899916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA889D22-C6D4-44DC-83C4-6C2B3E899916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

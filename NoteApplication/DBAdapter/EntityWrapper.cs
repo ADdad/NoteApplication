@@ -45,17 +45,18 @@ namespace NoteApplication.DBAdapter
         {
             using (var context = new NotesContext())
             {
+
                 context.Users.Add(user);
                 context.SaveChanges();
             }
         }
 
-        public static void AddNote(Note wallet)
+        public static void AddNote(Note note)
         {
             using (var context = new NotesContext())
             {
-                wallet.DeleteDatabaseValues();
-                context.Notes.Add(wallet);
+                note.DeleteDatabaseValues();
+                context.Notes.Add(note);
                 context.SaveChanges();
             }
         }
